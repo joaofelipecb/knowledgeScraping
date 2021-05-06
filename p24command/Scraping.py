@@ -2,11 +2,12 @@ import requests
 import p17data.Config
 import p17data.Scraping
 
-def scrap_init(escope,profile):
+def scrap_init(escope,profile,url):
     escope['profile'] = profile
+    escope['url'] = url
     version = p17data.Scraping.versions[p17data.Config.version]
     escope['seeks'] = version[profile]['seeks']
-    response = requests.get(version[profile]['url'])
+    response = requests.get(url)
     text = response.text
     part = text.split(version[profile]['begin'])[1]
     part = part.split(version[profile]['end'])[0]

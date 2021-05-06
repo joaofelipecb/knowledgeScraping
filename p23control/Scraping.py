@@ -1,10 +1,10 @@
 import p17data.Config
 import p17data.Scraping
 
-def scrap(profile):
+def scrap(profile,url):
     import p24command.Scraping
     escope = {}
-    p24command.Scraping.scrap_init(escope,profile)
+    p24command.Scraping.scrap_init(escope,profile,url)
     for escope['i'] in range(0,len(escope['parts'])):
         scrap_seek(escope)
     return escope['soughts']
